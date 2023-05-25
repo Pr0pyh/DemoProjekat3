@@ -10,6 +10,7 @@ broj = 5
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 197, 189 )
+speed = 50
 
 [node name="Sprite" parent="." instance=ExtResource( 3 )]
 

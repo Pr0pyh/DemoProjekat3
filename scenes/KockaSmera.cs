@@ -30,11 +30,11 @@ public class KockaSmera : Area2D
 
     public void _on_KockaSmera_body_entered(Node2D body)
     {
-        // if(body.GetType() == Player)
-        // {
-        //     Player player = (Player)body;
-        //     player.PromeniSmer(smerKocke);
-        // }
+        if(body.GetType() == typeof(Player))
+        {
+            Player player = (Player)body;
+            // player.PromeniSmer(smerKocke);
+        }
     }
 
     public void drugaKocka(VRSTA_KOCKE vrstaKocke)
