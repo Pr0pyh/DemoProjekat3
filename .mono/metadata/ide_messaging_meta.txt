@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-﻿50285
-C:/Users/vuk/Desktop/Godot_v3.5.2-stable_mono_win64/Godot_v3.5.2-stable_mono_win64/Godot_v3.5.2-stable_mono_win64.exe
-=======
-﻿38679
+﻿33197
 /home/andrej/Downloads/Godot_v3.5.2-stable_mono_x11_64/Godot_v3.5.2-stable_mono_x11.64
->>>>>>> 1c379d28653c2d754ab2217a8eb6077871fa0f14
