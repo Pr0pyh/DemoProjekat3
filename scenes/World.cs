@@ -40,11 +40,11 @@ public class World : Node2D
 		
 		if (@event.IsActionPressed("move"))
 		{
-			player.Trans = new Vector2(1, 0);
+			player.Moving = true;
 		}
 		else if (@event.IsActionPressed("stop"))
 		{
-			player.Trans = new Vector2(0, 0);
+			player.Moving = false;
 		} 
 	}
 

@@ -13,14 +13,28 @@ public class Player : KinematicBody2D
 		set {trans = value;}
 	}
 	
+	private bool moving;
+	public bool Moving 
+	{
+		get {return moving;}
+		set {moving = value;}
+	}
+	
 	public override void _Ready()
 	{
-			
+		trans = new Vector2(1, 0);
 	}
 
+	public void PromeniSmer(Vector2 smer)
+	{
+		trans = smer;
+	}
 
 	public override void _Process(float delta)
 	{
-		MoveAndSlide(trans * speed);
+		if (moving)
+		{
+			MoveAndSlide(trans * speed);	
+		}
 	}
 }
