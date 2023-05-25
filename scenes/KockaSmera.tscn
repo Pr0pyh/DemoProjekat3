@@ -27,7 +27,7 @@ public class KockaSmera : StaticBody2D
 "
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 1, 1 )
 
 [node name="KockaSmera" type="Area2D"]
 script = SubResource( 2 )
