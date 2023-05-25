@@ -6,6 +6,8 @@ public class World : Node2D
 	//Broj kocaka koji se moze staviti
 	[Export]
 	int broj;
+	[Export]
+	PackedScene nextLevel;
 	Player player;
 	//Varijabla koja ce nositi instancu scene 
 	KockaSmera kockaSmera;
@@ -79,5 +81,10 @@ public class World : Node2D
 	public void _on_Button5_pressed()
 	{
 		GetTree().ReloadCurrentScene();
+	}
+
+	public void _on_Finish_body_entered(Node2D body)
+	{
+		GetTree().ChangeSceneTo(nextLevel);
 	}
 }
