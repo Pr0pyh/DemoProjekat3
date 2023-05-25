@@ -33,24 +33,26 @@ public class World : Node2D
 			kockaSmera = (KockaSmera)kockaSmeraScene.Instance();
 			AddChild(kockaSmera);
 			kockaSmera.drugaKocka(vrstaKocke);
-			kockaSmera.GlobalPosition = GetGlobalMousePosition();
+			kockaSmera.GlobalPosition = shadowKocka.GlobalPosition;
 			broj--;
 			dostupanBroj.Text = "Available: " + broj;
 		}
 		
 		if (@event.IsActionPressed("move"))
 		{
-			player.Trans = new Vector2(1, 0);
+			player.Moving = true;
 		}
 		else if (@event.IsActionPressed("stop"))
 		{
-			player.Trans = new Vector2(0, 0);
+			player.Moving = false;
 		} 
 	}
 
 	public override void _Process(float delta)
 	{
-		shadowKocka.GlobalPosition = GetGlobalMousePosition();
+		float x_round = Mathf.Ceil(GetGlobalMousePosition().x/64.0f);
+		float y_round = Mathf.Ceil(GetGlobalMousePosition().y/64.0f);
+		shadowKocka.GlobalPosition = new Vector2(x_round*64.0f-32.0f, y_round*64.0f-32.0f);
 	}
 
 	public void _on_Button_pressed()
@@ -72,5 +74,10 @@ public class World : Node2D
 	{
 		vrstaKocke = KockaSmera.VRSTA_KOCKE.DOLE;
 		shadowKocka.GlobalRotation = Mathf.Deg2Rad(180);
+	}
+
+	public void _on_Button5_pressed()
+	{
+		GetTree().ReloadCurrentScene();
 	}
 }
