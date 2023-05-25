@@ -6,6 +6,7 @@ public class World : Node2D
 	//Broj kocaka koji se moze staviti
 	[Export]
 	int broj;
+	Player player;
 	//Varijabla koja ce nositi instancu scene 
 	KockaSmera kockaSmera;
 	//Scena na osnovu koje se instancira
@@ -17,6 +18,7 @@ public class World : Node2D
 	//Poziva se kada se napravi World scena
 	public override void _Ready()
 	{
+		player = GetNode<Player>("Player");
 		kockaSmeraScene = GD.Load<PackedScene>("res://scenes/KockaSmera.tscn");
 		dostupanBroj = GetNode<CanvasLayer>("CanvasLayer").GetNode<Label>("Label");
 		shadowKocka = GetNode<Sprite>("Sprite");
@@ -35,6 +37,15 @@ public class World : Node2D
 			broj--;
 			dostupanBroj.Text = "Available: " + broj;
 		}
+		
+		if (@event.IsActionPressed("move"))
+		{
+			player.Trans = new Vector2(1, 0);
+		}
+		else if (@event.IsActionPressed("stop"))
+		{
+			player.Trans = new Vector2(0, 0);
+		} 
 	}
 
 	public override void _Process(float delta)
